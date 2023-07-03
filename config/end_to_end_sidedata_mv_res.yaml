@@ -1,0 +1,23 @@
+MODEL:
+  NAME: 'E2ECompressedGEBDModel'
+  SYNC_BN: False
+  USE_GAN: False
+  USE_RESIDUAL: True
+  USE_MV_AS_DECONV_PARAMS: True
+INPUT:
+  END_TO_END: True
+  SEQUENCE_LENGTH: 100
+  USE_SIDE_DATA: True
+  USE_GOP: False
+SOLVER:
+  BATCH_SIZE: 4
+  LR: 7e-2
+  OPTIMIZER: 'SGD'
+  MAX_EPOCHS: 80
+  MILESTONES: [6, 8, 12, 16]
+DATASETS:
+  TRAIN: ('train', )
+  TEST: ('val',)
+TEST:
+  THRESHOLD: 0.3
+OUTPUT_DIR: 'output/tip'
